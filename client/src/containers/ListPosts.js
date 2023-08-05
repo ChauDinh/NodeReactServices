@@ -8,7 +8,7 @@ const ListPosts = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const responses = await axios.get('http://localhost:4000/posts');
+      const responses = await axios.get('http://localhost:4002/posts');
       setPosts(responses.data);
     };
 
@@ -26,7 +26,7 @@ const ListPosts = () => {
           <h3>{post.title}</h3>
         </div>
         <CommentCreateForm postId={post.id} />
-        <ListComments postId={post.id} />
+        <ListComments comments={post.comments} />
       </div>
     );
   });
